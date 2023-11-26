@@ -1,0 +1,35 @@
+{
+    "email_id": "23e23f8de4a547b091fa0a9512866c7b",
+    "event_object_key": "23e23f8de4a547b091fa0a9512866c7b",
+    "new_order_uuid": "23e23f8de4a547b091fa0a9512866c7b",
+    "source": "email",
+    "subject": "FW: Test",
+    "from": "\"Bradham, Jack\" <heyjack@amazon.com>",
+    "timestamp": "22/11/2023 16:15:55",
+    "email-attachments": [
+      {
+        "attachment_id": "83i223513977d96uakknmr31qoro1u730adgido1/25161814-1.jpg",
+        "content_type": "image/jpeg",
+        "key": "83i223513977d96uakknmr31qoro1u730adgido1/25161814-1.jpg"
+      },
+      {
+        "attachment_id": "83i223513977d96uakknmr31qoro1u730adgido1/25161814-1.pdf",
+        "content_type": "application/pdf",
+        "key": "83i223513977d96uakknmr31qoro1u730adgido1/25161814-1.pdf"
+      }
+    ],
+    "named-values-inference": "",
+    "receipt-schema-name-values": "",
+    "llm-summary": "",
+    "image-files": "",
+    "logo-text-inference-strings": "",
+    "FeatureTypes": [
+      "FORMS"
+    ],
+    "Document": {
+      "S3Object": {
+        "Bucket": "hit-promo-orders",
+        "Name": "23e23f8de4a547b091fa0a9512866c7b/24611402-2.jpg"
+      }
+    }
+  }

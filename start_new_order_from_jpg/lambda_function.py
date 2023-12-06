@@ -35,29 +35,29 @@ def lambda_handler(event, context):
   
   #create a meta data document about the order 
   item = {}
-  item['email_id'] = ''
-  item['event_object_key'] = event_object_key
-  item['new_order_uuid'] = new_order_uuid
-  item['source'] = 'dropped'
-  item['subject'] = ''
-  item['from'] = ''
-  item['timestamp'] = dt_string
-  item['email-attachments'] = ''
-  item['named-values-inference'] = ''
-  item['receipt-schema-name-values'] = ''
-  item['llm-summary'] = ''
-  item['image-files'] = ''
-  item['logo-text-inference-strings'] = ''
+  item["email_id"] = ''
+  item["event_object_key"] = event_object_key
+  item["new_order_uuid"] = new_order_uuid
+  item["source"] = 'dropped'
+  item["subject"] = ''
+  item["from"] = ''
+  item["timestamp"] = dt_string
+  item["email-attachments"] = ''
+  item["named-values-inference"] = ''
+  item["order_text"] = ''
+  item["llm-summary"] = ''
+  item["image-files"] = ''
+  item["logo-text-inference-strings"] = ''
   
   #json the order file storage data
   Document={}
   S3Object={}
   FeatureTypes= ['FORMS']
-  item['FeatureTypes'] = FeatureTypes
-  S3Object['Bucket'] = ORDERS_BUCKET
-  S3Object['Name'] = order_storage_key
-  Document['S3Object'] = S3Object
-  item['Document'] = Document
+  item["FeatureTypes"] = FeatureTypes
+  S3Object["Bucket"] = ORDERS_BUCKET
+  S3Object["Name"] = order_storage_key
+  Document["S3Object"] = S3Object
+  item["Document"] = Document
   
   #Save information about the iteam we just collected. 
   s3.put_object(

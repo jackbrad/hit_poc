@@ -56,33 +56,33 @@ def lambda_handler(event, context):
   
   #create a meta data document about the order 
   item = {}
-  item['email_id'] = EmailKey
-  item['event_object_key'] = EmailKey
-  item['new_order_uuid'] = EmailKey
-  item['source'] = 'email'
-  item['subject'] = raw_email["subject"]
-  item['from'] = raw_email["From"]
-  item['timestamp'] = dt_string
+  item["email_id"] = EmailKey
+  item["event_object_key"] = EmailKey
+  item["new_order_uuid"] = EmailKey
+  item["source"] = 'email'
+  item["subject"] = raw_email["subject"]
+  item["from"] = raw_email["From"]
+  item["timestamp"] = dt_string
  
-  item['email-attachments'] = attachments
-  item['named-values-inference'] = ''
-  item['receipt-schema-name-values'] = ''
-  item['llm-summary'] = ''
-  item['image-files'] = ''
-  item['logo-text-inference-strings'] = ''
+  item["email-attachments"] = attachments
+  item["named-values-inference"] = ''
+  item["order_text"] = ''
+  item["llm-summary"] = ''
+  item["image-files"] = ''
+  item["logo-text-inference-strings"] = ''
   
   #json the order file storage data
   Document={}
   S3Object={}
   FeatureTypes= ['FORMS']
-  item['FeatureTypes'] = FeatureTypes
-  S3Object['Bucket'] = ORDERS_BUCKET
-  S3Object['Name'] = attachment_key
+  item["FeatureTypes"] = FeatureTypes
+  S3Object["Bucket"] = ORDERS_BUCKET
+  S3Object["Name"] = attachment_key
   #we only want to add the jpg to the item key for futher processing
   if ".pdf" in  attachment_key:
-      S3Object['Name'] = re.sub(r'\.pdf$', '.jpg', attachment_key)
-  Document['S3Object'] = S3Object
-  item['Document'] = Document
+      S3Object["Name"] = re.sub(r'\.pdf$', '.jpg', attachment_key)
+  Document["S3Object"] = S3Object
+  item["Document"] = Document
   
   #Save information about the iteam we just collected. 
   s3.put_object(

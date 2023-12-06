@@ -33,7 +33,7 @@ def lambda_handler(event, context):
   
     return {
         'statusCode': 200,
-        'body': json.dumps(meta_file)
+        'body': meta_file
     }
 
 def find_and_save_image_segments(model,s3_pathJson, min_confidence):
@@ -70,6 +70,7 @@ def save_image_segments(bucket,photo,response):
     i=0
     # calculate and display bounding boxes for each detected custom label
     for customLabel in response['CustomLabels']:
+        i=i+1
         if 'Geometry' in customLabel:
             box = customLabel['Geometry']['BoundingBox']
             left = imgWidth * box['Left']
@@ -100,9 +101,10 @@ def save_image_segments(bucket,photo,response):
             
             upload_image(img=piece,bucket=bucket,file_name = file_name)
             imgs.append({
-                'bucket': bucket,
-                'file_name': file_name
+                "bucket": bucket,
+                "file_name": file_name
             })
+            
     return  imgs
             
 def upload_image(img, bucket, file_name):
@@ -119,4 +121,3 @@ def upload_image(img, bucket, file_name):
         bucket,
         file_name
     )
-    

@@ -16,7 +16,7 @@ def handler(event, context):
     
     template = """
     
-    Given a full document, give me a summary. Do not explain the answer. Just give the answer.
+    Given a full document, extract all the text. Skip any preamble text and just generate the text. Do not explain the answer. Just give the answer.
     
     <document>{doc_text}</document>
     <summary>"""

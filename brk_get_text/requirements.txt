@@ -1,0 +1,7 @@
+boto3
+langchain
+openai
+tiktoken
+anthropic
+amazon-textract-caller
+amazon-textract-textractor
